@@ -738,7 +738,7 @@ MagnificPopup.prototype = {
 		return (  (mfp.isIE7 ? _document.height() : document.body.scrollHeight) > (winHeight || _window.height()) );
 	},
 	_setFocus: function() {
-		(mfp.st.focus ? mfp.content.find(mfp.st.focus).eq(0) : mfp.wrap).focus();
+		if (typeof mfp.st.focus === 'string') (mfp.st.focus ? mfp.content.find(mfp.st.focus).eq(0) : mfp.wrap).focus();
 	},
 	_onFocusIn: function(e) {
 		if( e.target !== mfp.wrap[0] && !$.contains(mfp.wrap[0], e.target) ) {
